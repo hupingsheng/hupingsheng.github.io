@@ -1,0 +1,306 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>字符串 | 胡大仙</title><meta name="author" content="huxianseng"><meta name="copyright" content="huxianseng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="字符串 344. 反转字符串 题目的主要信息：  输入一个只包含小写字母的字符串 输出该字符串反转后的字符串  12345678class Solution &amp;#123;public:    void reverseString(vector&lt;char&gt;&amp; s) &amp;#123;        for(int i &#x3D; 0, j &#x3D; s.size() - 1; i &lt; j; i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串">
+<meta property="og:url" content="http://hupingsheng.com/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:site_name" content="胡大仙">
+<meta property="og:description" content="字符串 344. 反转字符串 题目的主要信息：  输入一个只包含小写字母的字符串 输出该字符串反转后的字符串  12345678class Solution &amp;#123;public:    void reverseString(vector&lt;char&gt;&amp; s) &amp;#123;        for(int i &#x3D; 0, j &#x3D; s.size() - 1; i &lt; j; i">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://hupingsheng.com/post_images/jianzhi-offer.jpg">
+<meta property="article:published_time" content="2022-03-12T10:38:14.000Z">
+<meta property="article:modified_time" content="2023-08-31T03:27:43.586Z">
+<meta property="article:author" content="huxianseng">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hupingsheng.com/post_images/jianzhi-offer.jpg"><link rel="shortcut icon" href="/images/my_logo.png"><link rel="canonical" href="http://hupingsheng.com/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '字符串',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-31 11:27:43'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/post_images/jianzhi-offer.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="胡大仙"><span class="site-name">胡大仙</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">字符串</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-12T10:38:14.000Z" title="发表于 2022-03-12 18:38:14">2022-03-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-08-31T03:27:43.586Z" title="更新于 2023-08-31 11:27:43">2023-08-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/leetcode%E7%B3%BB%E5%88%97/">leetcode系列</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="字符串"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="字符串">字符串</h2>
+<h4 id="344-反转字符串"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string/">344. 反转字符串</a></h4>
+<p>题目的主要信息：</p>
+<ul>
+<li>输入一个只包含小写字母的字符串</li>
+<li>输出该字符串反转后的字符串</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseString</span><span class="params">(vector&lt;<span class="type">char</span>&gt;&amp; s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>, j = s.<span class="built_in">size</span>() - <span class="number">1</span>; i &lt; j; i++,j--)&#123;</span><br><span class="line">            <span class="built_in">swap</span>(s[i], s[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="541-反转字符串-II"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-string-ii/">541. 反转字符串 II</a></h4>
+<blockquote>
+<p>每K个反转一次</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseStr</span><span class="params">(string s, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i += <span class="number">2</span> * k)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i + k &lt;= s.<span class="built_in">size</span>()) <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">begin</span>() + i + k);</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">end</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="151-反转字符串中的单词"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-words-in-a-string/">151. 反转字符串中的单词</a></h4>
+<blockquote>
+<p>c++ 没有split()函数 并不好写</p>
+<p>思路清晰的版本：</p>
+<p>实现一个函数，可以去除多余的空格，然后的字符串更加适合反转</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">//自定义函数：前后指针实现去除字符串多余空格，包括前导，结尾，中间多余空格</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reverseExtraSpaces</span><span class="params">(string&amp; s)</span></span>&#123;</span><br><span class="line">        <span class="comment">//前后指针   j记录有效字符</span></span><br><span class="line">        <span class="type">int</span> j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">&#x27; &#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(j) s[j++] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] != <span class="string">&#x27; &#x27;</span>) s[j++] = s[i++];</span><br><span class="line">        &#125;</span><br><span class="line">        s.<span class="built_in">resize</span>(j);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">string <span class="title">reverseWords</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">reverseExtraSpaces</span>(s);</span><br><span class="line">        <span class="comment">//c++ 自带的翻转函数，前开后闭</span></span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">begin</span>() + s.<span class="built_in">size</span>());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] != <span class="string">&#x27; &#x27;</span>) i++;</span><br><span class="line">            <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + j, s.<span class="built_in">begin</span>() + i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="剑指-Offer-05-替换空格"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/ti-huan-kong-ge-lcof/">剑指 Offer 05. 替换空格</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">&#x27; &#x27;</span>) res += <span class="string">&quot;%20&quot;</span>;</span><br><span class="line">            <span class="keyword">else</span> res += s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>c++ 字符串可以原地修改</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">replaceSpace</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c : s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">&#x27; &#x27;</span>) cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> i = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        s.<span class="built_in">resize</span>(s.<span class="built_in">size</span>() + <span class="number">2</span> * cnt);</span><br><span class="line">        <span class="type">int</span> j = s.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(i; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] == <span class="string">&#x27; &#x27;</span>) &#123;</span><br><span class="line">                s[j--] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                s[j--] = <span class="string">&#x27;2&#x27;</span>;</span><br><span class="line">                s[j--] = <span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> s[j--] = s[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zuo-xuan-zhuan-zi-fu-chuan-lcof/">剑指 Offer 58 - II. 左旋转字符串</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseLeftWords</span><span class="params">(string s, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(n, s.<span class="built_in">size</span>() - n) + s.<span class="built_in">substr</span>(<span class="number">0</span>, n);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="28-找出字符串中第一个匹配项的下标"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/">28. 找出字符串中第一个匹配项的下标</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="38-外观数列"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-and-say/">38. 外观数列</a></h4>
+<blockquote>
+<p><img src="/%E5%AD%97%E7%AC%A6%E4%B8%B2/image-20220622103251152-16558651727234.png" alt="image-20220622103251152"></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">countAndSay</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//第一项</span></span><br><span class="line">        string s = <span class="string">&quot;1&quot;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//求第n项，递推n - 1次即可</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)&#123;</span><br><span class="line">            string ns;      </span><br><span class="line">            <span class="comment">//寻找上一字符串连续字段----关键</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt; s.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                <span class="type">int</span> k = j;</span><br><span class="line">                <span class="keyword">while</span>(k &lt; s.<span class="built_in">size</span>() &amp;&amp; s[k] == s[j]) k++;</span><br><span class="line">                ns += <span class="built_in">to_string</span>(k - j) + s[j];     <span class="comment">// &quot;&quot; 只能 +=</span></span><br><span class="line">                j = k - <span class="number">1</span>;    <span class="comment">//因为有j++,所以这里-1</span></span><br><span class="line">            &#125;</span><br><span class="line">            s = ns;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="151-颠倒字符串中的单词-（重要）"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-words-in-a-string/">151. 颠倒字符串中的单词 </a>（重要）</h4>
+<blockquote>
+<p><img src="/%E5%AD%97%E7%AC%A6%E4%B8%B2/image-20220622104923200.png" alt="image-20220622104923200"></p>
+<ol>
+<li>
+<p>过滤空格（前导、中间）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//过滤前导空格/中间多余空格</span></span><br><span class="line"><span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] == <span class="string">&#x27; &#x27;</span>) i++;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>找出连续非空----翻转</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//寻找一段连续的字符串，并且翻转</span></span><br><span class="line">           <span class="type">int</span> j = i;</span><br><span class="line">           <span class="keyword">while</span>(j &lt; s.<span class="built_in">size</span>() &amp;&amp; s[j] != <span class="string">&#x27; &#x27;</span>) j++;</span><br><span class="line">           <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">begin</span>() + j); <span class="comment">//包括左区间指向的元素，不包括右区间指向的元素</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>存入实际的字符串</p>
+</li>
+</ol>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">reverseWords</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="comment">//过滤前导空格/中间多余空格</span></span><br><span class="line">            <span class="keyword">while</span>(i &lt; s.<span class="built_in">size</span>() &amp;&amp; s[i] == <span class="string">&#x27; &#x27;</span>) i++;</span><br><span class="line">            <span class="keyword">if</span>(i == s.<span class="built_in">size</span>() - <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">            </span><br><span class="line">             <span class="comment">//寻找一段连续的字符串，并且翻转</span></span><br><span class="line">            <span class="type">int</span> j = i;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; s.<span class="built_in">size</span>() &amp;&amp; s[j] != <span class="string">&#x27; &#x27;</span>) j++;</span><br><span class="line">            <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>() + i, s.<span class="built_in">begin</span>() + j); <span class="comment">//包括左区间指向的元素，不包括右区间指向的元素</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//将连续的字符串存入实际的字符串中，注意空格的添加判断</span></span><br><span class="line">            <span class="keyword">if</span>(k) s[k++] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; j) s[k++] = s[i++];</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="comment">//擦除后序空格</span></span><br><span class="line">        s.<span class="built_in">erase</span>(s.<span class="built_in">begin</span>() + k, s.<span class="built_in">end</span>());     <span class="comment">//s.begin()字符串第一个元素,s.end()指向字符串的末尾(最后一个字符的下一个位置).</span></span><br><span class="line">        <span class="built_in">reverse</span>(s.<span class="built_in">begin</span>(), s.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="929-独特的电子邮件地址"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-email-addresses/">929. 独特的电子邮件地址</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">numUniqueEmails</span><span class="params">(vector&lt;string&gt;&amp; emails)</span> </span>&#123;</span><br><span class="line">        unordered_set&lt;string&gt; hash;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> email:emails)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> at=email.<span class="built_in">find</span>(<span class="string">&quot;@&quot;</span>);<span class="comment">//返回@的位置，用于切割用户名和域名</span></span><br><span class="line">            <span class="comment">//处理用户名</span></span><br><span class="line">            string name;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> c:email.<span class="built_in">substr</span>(<span class="number">0</span>,at))     </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(c==<span class="string">&#x27;+&#x27;</span>) <span class="keyword">break</span>;            <span class="comment">//碰到 + ,直接截断</span></span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(c != <span class="string">&#x27;.&#x27;</span>) name+=c;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//处理域名</span></span><br><span class="line">            string domain=email.<span class="built_in">substr</span>(at+<span class="number">1</span>);</span><br><span class="line">            </span><br><span class="line">            hash.<span class="built_in">insert</span>(name+<span class="string">&#x27;@&#x27;</span>+domain);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> hash.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="5-最长回文子串"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">5. 最长回文子串</a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="comment">//枚举每个点，每个点从中心散开，左右指针</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.<span class="built_in">size</span>()<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//奇数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> left=i,right=i; left&gt;=<span class="number">0</span>&amp;&amp;right&lt;s.<span class="built_in">size</span>()<span class="number">-1</span> &amp;&amp; s[left]==s[right]; left--,right++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(right-left+<span class="number">1</span>&gt;res.<span class="built_in">size</span>()) res=s.<span class="built_in">substr</span>(left,right-left+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">               <span class="comment">//偶数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> left=i,right=i+<span class="number">1</span>; left&gt;=<span class="number">0</span>&amp;&amp;right&lt;s.<span class="built_in">size</span>()<span class="number">-1</span> &amp;&amp; s[left]==s[right]; left--,right++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(right-left+<span class="number">1</span>&gt;res.<span class="built_in">size</span>()) res=s.<span class="built_in">substr</span>(left,right-left+<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="6-Z-字形变换"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zigzag-conversion/">6. Z 字形变换 </a></h4>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">convert</span><span class="params">(string s, <span class="type">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(numRows==<span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        string res;</span><br><span class="line">        <span class="comment">//遍历0～n-1行（根据每行的首列数字找规律）</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;numRows;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//首行和最后一行</span></span><br><span class="line">            <span class="keyword">if</span>(!i || i==numRows<span class="number">-1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;s.<span class="built_in">size</span>();j+=<span class="number">2</span>*(numRows<span class="number">-1</span>))</span><br><span class="line">                    res+=s[j];</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            <span class="comment">//中间行</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=i,k=<span class="number">2</span>*(numRows<span class="number">-1</span>)-i;j&lt;s.<span class="built_in">size</span>() || k&lt;s.<span class="built_in">size</span>();j+=<span class="number">2</span>*(numRows<span class="number">-1</span>),k+=<span class="number">2</span>*(numRows<span class="number">-1</span>))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(j&lt;s.<span class="built_in">size</span>()) res+=s[j];</span><br><span class="line">                    <span class="keyword">if</span>(k&lt;s.<span class="built_in">size</span>()) res+=s[k];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="14-最长公共前缀"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-common-prefix/">14. 最长公共前缀</a></h4>
+<p>题目主要信息:</p>
+<ul>
+<li>给定一个字符串数组，其中有n个字符串，求所有字符串的最长公共前缀</li>
+<li>公共前缀是指所有字符串都共有的前面部分的子串，从第一个字符开始</li>
+</ul>
+<h4 id="468-验证IP地址"><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/validate-ip-address/">468. 验证IP地址</a></h4>
+<p>题目主要信息：</p>
+<ul>
+<li>IPv4只有十进制数和分割点，其中数字在0-255之间，共4组，且不能有零开头的非零数，不能缺省</li>
+<li>IPv6由8组16进制数组成，会出现a-fA-F，通过冒号分割，不可缺省，可以零开头，或者为一个单独零，每组最多4位。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://hupingsheng.com">huxianseng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://hupingsheng.com/%E5%AD%97%E7%AC%A6%E4%B8%B2/">http://hupingsheng.com/字符串/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://hupingsheng.com" target="_blank">胡大仙</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a></div><div class="post_share"><div class="social-share" data-image="/post_images/jianzhi-offer.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/images/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="滑动窗口"><img class="cover" src="/post_images/jianzhi-offer.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">滑动窗口</div></div></a></div><div class="next-post pull-right"><a href="/%E9%80%92%E5%BD%92%E5%9B%9E%E6%BA%AF/" title="递归 &amp; 回溯"><img class="cover" src="/post_images/jianzhi-offer.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">递归 &amp; 回溯</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E5%89%91%E6%8C%87offer/" title="剑指offer"><img class="cover" src="/post_images/jianzhi-offer.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-12</div><div class="title">剑指offer</div></div></a></div><div><a href="/%E5%9B%9E%E6%BA%AF%E4%B8%93%E9%A2%98/" title="回溯专题"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-16</div><div class="title">回溯专题</div></div></a></div><div><a href="/acwing/" title="acwing"><img class="cover" src="/post_images/acwing.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-19</div><div class="title">acwing</div></div></a></div><div><a href="/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E7%90%86%E8%AE%BA/" title="算法基础理论"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-20</div><div class="title">算法基础理论</div></div></a></div><div><a href="/%E9%93%BE%E8%A1%A8%E7%B3%BB%E5%88%97/" title="链表专题"><img class="cover" src="/post_images/jianzhi-offer.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-12</div><div class="title">链表专题</div></div></a></div><div><a href="/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%8E%92%E5%BA%8F%E7%B3%BB%E5%88%97/" title="二分查找 &amp;&amp; 排序专题"><img class="cover" src="/post_images/jianzhi-offer.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-12</div><div class="title">二分查找 &amp;&amp; 排序专题</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">huxianseng</div><div class="author-info__description">日拱一卒，功不唐捐!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hupingsheng"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hupingsheng" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hu942658636@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.0.1.</span> <span class="toc-text">344. 反转字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#541-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2-II"><span class="toc-number">1.0.2.</span> <span class="toc-text">541. 反转字符串 II</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#151-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D"><span class="toc-number">1.0.3.</span> <span class="toc-text">151. 反转字符串中的单词</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%91%E6%8C%87-Offer-05-%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC"><span class="toc-number">1.0.4.</span> <span class="toc-text">剑指 Offer 05. 替换空格</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#28-%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8C%B9%E9%85%8D%E9%A1%B9%E7%9A%84%E4%B8%8B%E6%A0%87"><span class="toc-number">1.0.5.</span> <span class="toc-text">28. 找出字符串中第一个匹配项的下标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#38-%E5%A4%96%E8%A7%82%E6%95%B0%E5%88%97"><span class="toc-number">1.0.6.</span> <span class="toc-text">38. 外观数列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#151-%E9%A2%A0%E5%80%92%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%9A%84%E5%8D%95%E8%AF%8D-%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">1.0.7.</span> <span class="toc-text">151. 颠倒字符串中的单词 （重要）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#929-%E7%8B%AC%E7%89%B9%E7%9A%84%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6%E5%9C%B0%E5%9D%80"><span class="toc-number">1.0.8.</span> <span class="toc-text">929. 独特的电子邮件地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="toc-number">1.0.9.</span> <span class="toc-text">5. 最长回文子串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-Z-%E5%AD%97%E5%BD%A2%E5%8F%98%E6%8D%A2"><span class="toc-number">1.0.10.</span> <span class="toc-text">6. Z 字形变换 </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80"><span class="toc-number">1.0.11.</span> <span class="toc-text">14. 最长公共前缀</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#468-%E9%AA%8C%E8%AF%81IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.0.12.</span> <span class="toc-text">468. 验证IP地址</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E7%AE%97%E6%B3%95/" title="算法题"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法题"/></a><div class="content"><a class="title" href="/%E7%AE%97%E6%B3%95/" title="算法题">算法题</a><time datetime="2023-08-31T02:47:33.000Z" title="发表于 2023-08-31 10:47:33">2023-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E5%92%8C%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2/" title="创建菜单和游戏界面"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创建菜单和游戏界面"/></a><div class="content"><a class="title" href="/%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E5%92%8C%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2/" title="创建菜单和游戏界面">创建菜单和游戏界面</a><time datetime="2023-08-26T13:23:19.000Z" title="发表于 2023-08-26 21:23:19">2023-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/JUC/" title="JUC"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JUC"/></a><div class="content"><a class="title" href="/JUC/" title="JUC">JUC</a><time datetime="2023-08-25T08:48:58.000Z" title="发表于 2023-08-25 16:48:58">2023-08-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E6%96%B9%E6%A1%88/" title="缓存更新方案"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存更新方案"/></a><div class="content"><a class="title" href="/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E6%96%B9%E6%A1%88/" title="缓存更新方案">缓存更新方案</a><time datetime="2023-08-13T07:15:26.000Z" title="发表于 2023-08-13 15:15:26">2023-08-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E4%B8%8E%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" title="对称加密与非对称加密"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="对称加密与非对称加密"/></a><div class="content"><a class="title" href="/%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E4%B8%8E%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86/" title="对称加密与非对称加密">对称加密与非对称加密</a><time datetime="2023-06-28T10:48:23.000Z" title="发表于 2023-06-28 18:48:23">2023-06-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By huxianseng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
