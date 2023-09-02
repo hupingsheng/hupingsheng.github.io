@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SpringBoot | 胡大仙</title><meta name="author" content="huxianseng"><meta name="copyright" content="huxianseng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="SpringBoot基础入门 什么是 Spring Boot？ **快问快答：**Spring Boot 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方案，主要是简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。 细 ​	Spring Boot是基于Spring开发的全新框架，相当于对Spring做了又一层封装。 ​	其设计目的是用来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot">
+<meta property="og:url" content="http://hupingsheng.com/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/SpringBoot/index.html">
+<meta property="og:site_name" content="胡大仙">
+<meta property="og:description" content="SpringBoot基础入门 什么是 Spring Boot？ **快问快答：**Spring Boot 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方案，主要是简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。 细 ​	Spring Boot是基于Spring开发的全新框架，相当于对Spring做了又一层封装。 ​	其设计目的是用来">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://hupingsheng.com/images/home.webp">
+<meta property="article:published_time" content="2022-06-16T03:00:07.000Z">
+<meta property="article:modified_time" content="2023-09-02T08:14:10.436Z">
+<meta property="article:author" content="huxianseng">
+<meta property="article:tag" content="框架">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hupingsheng.com/images/home.webp"><link rel="shortcut icon" href="/images/my_logo.png"><link rel="canonical" href="http://hupingsheng.com/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/SpringBoot/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'mediumZoom',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SpringBoot',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-09-02 16:14:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/home.webp')"><nav id="nav"><span id="blog-info"><a href="/" title="胡大仙"><span class="site-name">胡大仙</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-16T03:00:07.000Z" title="发表于 2022-06-16 11:00:07">2022-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-09-02T08:14:10.436Z" title="更新于 2023-09-02 16:14:10">2023-09-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E6%A1%86%E6%9E%B6/">JavaWeb框架</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>19分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringBoot"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="SpringBoot基础入门">SpringBoot基础入门</h2>
+<h3 id="什么是-Spring-Boot？">什么是 Spring Boot？</h3>
+<p>**快问快答：**Spring Boot 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方案，主要是简化了使用 Spring 的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。</p>
+<p><strong>细</strong></p>
+<p>​	Spring Boot是基于Spring开发的全新框架，相当于对Spring做了又一层封装。</p>
+<p>​	其设计目的是用来<strong>简化Spring应用的初始搭建以及开发过程</strong>。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。（自动配置）</p>
+<p>​	并且对第三方依赖的添加也进行了封装简化。（依赖管理）</p>
+<p>​	所以Spring能做的他都能做，并且简化了配置。</p>
+<p>​	并且还提供了一些Spring所没有的比如：</p>
+<ul>
+<li>内嵌web容器，不再需要部署到web容器中</li>
+<li>提供准备好的特性，如指标、健康检查和外部化配置</li>
+</ul>
+<p>​	最大特点：<strong>自动配置</strong>、<strong>起步依赖/依赖管理</strong></p>
+<h3 id="SpringBoot有哪些优点？">SpringBoot有哪些优点？</h3>
+<ul>
+<li>
+<p>创建独立Spring应用</p>
+<p>Spring Boot 而且内嵌了各种 servlet 容器，Tomcat、Jetty 等，现在不再需要打成war 包部署到容器中，Spring Boot 只要打成一个可执行的 jar 包就能独立运行，所有的依赖包都在一个 jar 包内。</p>
+</li>
+<li>
+<p>内嵌web服务器</p>
+</li>
+<li>
+<p>自动配置Spring以及第三方功能【自动配置】</p>
+<p>spring-boot-starter-web 启动器自动依赖其他组件，简少了 maven 的配置。</p>
+</li>
+<li>
+<p>自动starter依赖，简化构建配置【依赖管理】</p>
+<p>Spring Boot 能根据当前类路径下的类、jar 包来自动配置 bean，如添加一个 spring-boot-starter-web 启动器就能拥有 web 的功能，无需其他配置。</p>
+</li>
+<li>
+<p>无代码生成和XML配置<br>
+Spring Boot 配置过程中无代码生成，也无需 XML 配置文件就能完成所有配置工作，这一切都是借助于条件注解完成的，这也是 Spring4.x 的核心功能之一。</p>
+</li>
+<li>
+<p>提供生产级别的监控、健康检查及外部化配置</p>
+<p>Spring Boot 提供一系列端点可以监控服务及应用，做健康检测。</p>
+</li>
+</ul>
+<h3 id="讲述一下-SpringBoot-自动装配原理">讲述一下 SpringBoot 自动装配原理</h3>
+<p><strong>什么是自动装配</strong></p>
+<p>通过注解或者一些简单的配置就能在 Spring Boot 的帮助下实现某块功能。</p>
+<p><strong>SpringBoot是如何实现自动装配的</strong></p>
+<p>先看一下 SpringBoot 的核心注解 <code>SpringBootApplication</code></p>
+<p>大概可以把 <code>@SpringBootApplication</code>看作是 <code>@Configuration</code>、<code>@EnableAutoConfiguration</code>、<code>@ComponentScan</code> 注解的集合。</p>
+<ul>
+<li><code>@EnableAutoConfiguration</code>：启用 SpringBoot 的自动配置机制</li>
+<li><code>@Configuration</code>：代表这是一个配置类：允许在上下文中注册额外的 bean 或导入其他配置类</li>
+<li><code>@ComponentScan</code>： 扫描被<code>@Component</code> (<code>@Service</code>,<code>@Controller</code>)注解的 bean，注解默认会扫描启动类所在的包下所有的类 ，可以自定义不扫描某些 bean。如下图所示，容器中将排除<code>TypeExcludeFilter</code>和<code>AutoConfigurationExcludeFilter</code>。</li>
+</ul>
+<p><strong>总结</strong></p>
+<ul>
+<li>
+<p>SpringBoot先加载所有的自动配置类(127个)  xxxxxAutoConfiguration</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration,\</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>每个自动配置类按照条件进行生效，默认都会绑定配置文件指定的值。xxxxProperties里面拿。xxxProperties和配置文件进行了绑定</p>
+</li>
+<li>
+<p>生效的配置类就会给容器中装配很多组件</p>
+</li>
+<li>
+<p>只要容器中有这些组件，相当于这些功能就有了</p>
+</li>
+<li>
+<p>定制化配置</p>
+</li>
+<li>
+<ul>
+<li>用户直接自己@Bean替换底层的组件</li>
+<li>用户去看这个组件是获取的配置文件什么值就去修改。</li>
+</ul>
+</li>
+</ul>
+<p><strong>xxxxxAutoConfiguration —&gt; 组件  —&gt;</strong> <strong>xxxxProperties里面拿值  ----&gt; application.properties</strong></p>
+<h3 id="Spring-Boot-的核心配置文件有哪几个？它们的区别是什么？">Spring Boot 的核心配置文件有哪几个？它们的区别是什么？</h3>
+<p>Spring Boot 的核心配置文件是 application 和 bootstrap 配置文件。</p>
+<p>application 配置文件这个容易理解，主要<strong>用于 Spring Boot 项目的自动化配置</strong>。</p>
+<p>bootstrap 配置文件有以下几个应用场景。</p>
+<ul>
+<li>使用 Spring Cloud Config 配置中心时，这时需要在 bootstrap 配置文件中添加连接到配置中心的配置属性来加载外部配置中心的配置信息；</li>
+<li>一些固定的不能被覆盖的属性；</li>
+<li>一些加密/解密的场景；</li>
+</ul>
+<h3 id="5-Spring-Boot-的配置文件有哪几种格式？它们有什么区别？">5.Spring Boot 的配置文件有哪几种格式？它们有什么区别？</h3>
+<p>.properties 和 .yml，它们的区别主要是书写格式不同。</p>
+<p>1).properties</p>
+<p><a target="_blank" rel="noopener" href="http://app.user.name">app.user.name</a> = javastack</p>
+<p>2).yml</p>
+<p>app: user: name: javastack</p>
+<p>另外，.yml 格式不支持 <code>@PropertySource</code> 注解导入配置。</p>
+<h3 id="6-Spring-Boot-的核心注解是哪个？它主要由哪几个注解组成的？">6. Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target(ElementType.TYPE)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(excludeFilters = &#123;</span></span><br><span class="line"><span class="meta">      @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),</span></span><br><span class="line"><span class="meta">      @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) &#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br></pre></td></tr></table></figure>
+<p>主要组合包含了以下 3 个注解：</p>
+<ul>
+<li>
+<p>@<strong>SpringBootConfiguration</strong>：<br>
+组合了 @Configuration 注解，实现配置文件的功能。</p>
+</li>
+<li>
+<p>@<strong>EnableAutoConfiguration</strong>：<br>
+打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能： @SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })。</p>
+</li>
+<li>
+<p>@<strong>ComponentScan</strong>：<br>
+Spring组件扫描。</p>
+</li>
+</ul>
+<h3 id="7-开启-Spring-Boot-特性有哪几种方式？">7. 开启 Spring Boot 特性有哪几种方式？</h3>
+<p><strong>快问快答</strong></p>
+<p>1）继承spring-boot-starter-parent项目</p>
+<p>2）导入spring-boot-dependencies项目依赖</p>
+<p><strong>详细介绍启动方式</strong></p>
+<p><strong>Spring Boot依赖</strong></p>
+<p>使用Spring Boot很简单，先添加基础依赖包，有以下两种方式</p>
+<ol>
+<li>
+<p>继承spring-boot-starter-parent项目</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>导入spring-boot-dependencies项目依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span>        </span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span>            </span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span>            </span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.6.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span>            </span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span>        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Spring Boot依赖注意点</p>
+<ol>
+<li>
+<p>属性覆盖只对继承有效</p>
+<p>Spring Boot依赖包里面的组件的版本都是和当前Spring Boot绑定的，如果要修改里面组件的版本，只需要添加如下属性覆盖即可，但这种方式只对继承有效，导入的方式无效。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">slf4j.version</span>&gt;</span>1.7.25<span class="tag">&lt;<span class="name">slf4j.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果导入的方式要实现版本的升级，达到上面的效果，这样也可以做到，把要升级的组件依赖放到Spring Boot之前。</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/SpringBoot/image-20230902161351922.png" alt="image-20230902161351922"></p>
+</li>
+<li>
+<p>资源文件过滤问题</p>
+<p>使用继承Spring Boot时，如果要使用Maven resource filter过滤资源文件时，资源文件里面的占位符为了使${}和Spring Boot区别开来，此时要用@…@包起来，不然无效。另外，@…@占位符在yaml文件编辑器中编译报错，所以使用继承方式有诸多问题，坑要慢慢趟。</p>
+</li>
+</ol>
+<h3 id="8-什么是JavaConfig？">8. 什么是JavaConfig？</h3>
+<p>Spring JavaConfig 是 Spring 社区的产品，它提供了配置 Spring IoC 容器的纯Java 方法。因此它有助于避免使用 XML 配置。使用 JavaConfig 的优点在于：</p>
+<ul>
+<li>
+<p><strong>面向对象的配置</strong>。<br>
+由于配置被定义为 JavaConfig 中的类，因此用户可以充分利用 Java 中的面向对象功能。一个配置类可以继承另一个，重写它的@Bean 方法等。</p>
+</li>
+<li>
+<p><strong>减少或消除 XML 配置</strong>。<br>
+基于依赖注入原则的外化配置的好处已被证明。但是，许多开发人员不希望在 XML 和 Java 之间来回切换。JavaConfig 为开发人员提供了一种纯 Java 方法来配置与 XML 配置概念相似的 Spring 容器。从技术角度来讲，只使用 JavaConfig 配置类来配置容器是可行的，但实际上很多人认为将JavaConfig 与 XML 混合匹配是理想的。</p>
+</li>
+<li>
+<p><strong>类型安全和重构友好</strong>。<br>
+JavaConfig 提供了一种类型安全的方法来配置 Spring容器。由于 Java 5.0 对泛型的支持，现在可以按类型而不是按名称检索 bean，不需要任何强制转换或基于字符串的查找。</p>
+</li>
+</ul>
+<h3 id="10-SpringBoot、Spring-MVC和Spring有什么区别？">10. SpringBoot、Spring MVC和Spring有什么区别？</h3>
+<ul>
+<li>
+<p><strong>Spring</strong><br>
+Spring最重要的特征是依赖注入。所有Spring Modules不是依赖注入就是IOC控制反转。<br>
+当我们恰当的使用DI或者是IOC的时候，可以开发松耦合应用。</p>
+</li>
+<li>
+<p><strong>Spring MVC</strong><br>
+Spring MVC提供了一种分离式的方法来开发Web应用。通过运用像DispatcherServelet，MoudlAndView 和 ViewResolver 等一些简单的概念，开发 Web 应用将会变的非常简单。</p>
+</li>
+<li>
+<p><strong>SpringBoot</strong><br>
+Spring和Spring MVC的问题在于需要配置大量的参数。<br>
+SpringBoot通过一个自动配置和启动的项来解决这个问题。</p>
+</li>
+</ul>
+<h3 id="11-SpringBoot启动时都做了什么">11. SpringBoot启动时都做了什么?</h3>
+<ol>
+<li>SpringBoot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值</li>
+<li>将这些值作为自动配置类导入容器 ， 自动配置类就生效 ， 帮我们进行自动配置工作；</li>
+<li>整个J2EE的整体解决方案和自动配置都在springboot-autoconfigure的jar包中；</li>
+<li>它会给容器中导入非常多的自动配置类 （xxxAutoConfiguration）, 就是给容器中导入这个场景需要的所有组件 ， 并配置好这些组件 ；</li>
+<li>有了自动配置类 ， 免去了我们手动编写配置注入功能组件等的工作；</li>
+</ol>
+<h3 id="12-SpringBoot-需要独立的容器运行吗？">12. SpringBoot 需要独立的容器运行吗？</h3>
+<p>可以不需要，内置了 Tomcat/ Jetty 等容器。</p>
+<h3 id="13-什么是YAML？">13. 什么是YAML？</h3>
+<p>YAML 是一种人类可读的<strong>数据序列化语言</strong>。一种专门用来写配置文件的语言。<strong>它通常用于配置文件</strong>。与属性文件相比，如果我们想要在配置文件中添加复杂的属性，YAML 文件就更加结构化，而且更少混淆。可以看出 YAML 具有分层配置数据。</p>
+<p><strong>YAML试图用一种比XML更敏捷的方式</strong>，来完成XML所完成的任务。</p>
+<p>​		 例如：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">student:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">sangeng</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">15</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">student</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>sangeng<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>15<span class="tag">&lt;/<span class="name">age</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">student</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="14-YAML-配置的优势在哪里">14. YAML 配置的优势在哪里 ?</h3>
+<p>YAML 现在可以算是非常流行的一种配置文件格式了，无论是前端还是后端，都可以见到 YAML 配置。<strong>那么 YAML 配置和传统的 properties 配置相比到底有哪些优势呢？</strong></p>
+<ol>
+<li><strong>配置有序</strong>，在一些特殊的场景下，配置有序很关键</li>
+<li><strong>支持数组</strong>，数组中的元素可以是基本数据类型也可以是对象</li>
+<li><strong>简洁</strong></li>
+</ol>
+<p>相比 properties 配置文件，YAML 还有一个缺点，就是不支持 @PropertySource 注解导入自定义的 YAML 配置。</p>
+<h3 id="15-SpringBoot-是否可以使用-XML-配置">15. SpringBoot 是否可以使用 XML 配置 ?</h3>
+<p>Spring Boot 推荐使用 Java 配置而非 XML 配置，但是 Spring Boot 中也可以使用 XML 配置，通过 @ImportResource 注解可以引入一个 XML 配置。</p>
+<h3 id="16-SpringBoot核心配置文件是什么？">16. SpringBoot核心配置文件是什么？</h3>
+<p>bootstrap.properties和application.properties</p>
+<h3 id="17-bootstrap-properties和application-properties-有何区别">17. bootstrap.properties和application.properties 有何区别 ?</h3>
+<p>SpringBoot两个核心的配置文件：</p>
+<ul>
+<li><strong>bootstrap</strong>(.yml 或者 .properties)：boostrap 由父 ApplicationContext 加载的，比applicaton优先加载，配置在应用程序上下文的引导阶段生效。一般来说我们在SpringCloud Config 或者Nacos中会用到它。且boostrap里面的属性不能被覆盖；</li>
+<li><strong>application</strong> (.yml或者.properties)：由ApplicatonContext 加载，用于 SpringBoot项目的自动化配置。</li>
+</ul>
+<h3 id="18-什么是Spring-Profiles？">18. 什么是Spring Profiles？</h3>
+<h3 id="19-如何在自定义端口上运行SpringBoot应用程序？">19. 如何在自定义端口上运行SpringBoot应用程序？</h3>
+<p>SpringBoot默认监听的是8080端口；为了在自定义端口上运行 SpringBoot 应用程序，您可以在application.properties 中通过</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.port = 8888</span><br></pre></td></tr></table></figure>
+<p>指定端口；这样就可以将监听的端口修改为8888。</p>
+<h3 id="20-如何实现SpringBoot应用程序的安全性？">20. 如何实现SpringBoot应用程序的安全性？</h3>
+<p>为了实现SpringBoot的安全性，我们使用spring-boot-starter-security依赖项，并且必须添加安全配置。它只需要很少的代码。配置类将必须扩展WebSecurityConfigurerAdapter并覆盖其方法。</p>
+<h3 id="21-比较一下Spring-Security-和Shiro各自的优缺点">21. 比较一下Spring Security 和Shiro各自的优缺点 ?</h3>
+<p>由于SpringBoot官方提供了大量的非常方便的开箱即用的Starter，包括Spring Security的Starter ，使得在 SpringBoot中使用Spring Security变得更加容易，甚至只需要添加一个依赖就可以保护所有的接口，所以，如果是SpringBoot 项目，一般选择 Spring Security 。当然这只是一个建议的组合，单纯从技术上来说，无论怎么组合，都是没有问题的。Shiro和Spring Security相比，主要有如下一些特点：</p>
+<ol>
+<li>Spring Security 是一个重量级的安全管理框架；Shiro 则是一个轻量级的安全管理框架</li>
+<li>Spring Security 概念复杂，配置繁琐；Shiro 概念简单、配置简单</li>
+<li>Spring Security 功能强大；Shiro 功能简单</li>
+</ol>
+<h3 id="22-SpringBoot中如何解决跨域问题">22. SpringBoot中如何解决跨域问题 ?</h3>
+<p><strong>什么是跨域?</strong></p>
+<p>浏览器出于安全的考虑，使用 XMLHttpRequest对象发起 HTTP请求时必须遵守同源策略，否则就是<strong>跨域的HTTP请求，默认情况下是被禁止的。</strong> 同源策略要求源相同才能正常进行通信，即<strong>协议、域名、端口号都完全一致。</strong></p>
+<p>跨域可以在前端通过 JSONP 来解决，但是 JSONP 只可以发送 GET 请求，无法发送其他类型的请求，在 RESTful 风格的应用中，就显得非常鸡肋，因此我们推荐在后端通过 （CORS，Cross-origin resource sharing） 来解决跨域问题。这种解决方案并非 Spring Boot 特有的，在传统的 SSM 框架中，就可以通过 CORS 来解决跨域问题，只不过之前我们是在 XML 文件中配置 CORS ，现在可以通过实现<code>WebMvcConfigurer</code>接口然后重写<code>addCorsMappings</code>方法解决跨域问题。</p>
+<p><strong>SpringBoot使用CORS解决跨域</strong></p>
+<p>两种方法：注解、配置</p>
+<p>1.使用@CrossOrigin</p>
+<p>可以在支持跨域的方法上或者是Controller上加上<code>@CrossOrigin</code>注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/user&quot;)</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserServcie userServcie;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/findAll&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> ResponseResult <span class="title function_">findAll</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">//调用service查询数据 ，进行返回</span></span><br><span class="line">        List&lt;User&gt; users = userServcie.findAll();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ResponseResult</span>(<span class="number">200</span>,users);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.使用 WebMvcConfigurer 的 addCorsMappings 方法配置CorsInterceptor</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CorsConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addCorsMappings</span><span class="params">(CorsRegistry registry)</span> &#123;</span><br><span class="line">      <span class="comment">// 设置允许跨域的路径</span></span><br><span class="line">        registry.addMapping(<span class="string">&quot;/**&quot;</span>)</span><br><span class="line">                <span class="comment">// 设置允许跨域请求的域名</span></span><br><span class="line">                .allowedOriginPatterns(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">                <span class="comment">// 是否允许携带cookie</span></span><br><span class="line">                .allowCredentials(<span class="literal">true</span>)</span><br><span class="line">                <span class="comment">// 设置允许的请求方式</span></span><br><span class="line">                .allowedMethods(<span class="string">&quot;GET&quot;</span>, <span class="string">&quot;POST&quot;</span>, <span class="string">&quot;DELETE&quot;</span>, <span class="string">&quot;PUT&quot;</span>)</span><br><span class="line">                <span class="comment">// 设置允许的header属性</span></span><br><span class="line">                .allowedHeaders(<span class="string">&quot;*&quot;</span>)</span><br><span class="line">                <span class="comment">// 跨域允许时间</span></span><br><span class="line">                .maxAge(<span class="number">3600</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="23-什么是-CSRF-攻击？">23. 什么是 CSRF 攻击？</h3>
+<h3 id="24-SpringBoot-中的监视器是什么">24. SpringBoot 中的监视器是什么</h3>
+<p>Spring boot actuator是spring启动框架中的重要功能之一。Spring boot监视器可帮助您访问生产环境中正在运行的应用程序的当前状态。有几个指标必须在生产环境中进行检查和监控。即使一些外部应用程序可能正在使用这些服务来向相关人员触发警报消息。监视器模块公开了一组可直接作为HTTPURL访问的REST端点来检查状态。</p>
+<h3 id="25-如何在SpringBoot中禁用Actuator端点安全性？">25. 如何在SpringBoot中禁用Actuator端点安全性？</h3>
+<h3 id="27-什么是-WebSockets？">27. 什么是 WebSockets？</h3>
+<p>WebSocket是一种计算机通信协议，通过单个TCP连接提供全双工通信信道。</p>
+<ol>
+<li>WebSocket是双向的 -使用 WebSocket 客户端或服务器可以发起消息发送。</li>
+<li>WebSocket是全双工的 -客户端和服务器通信是相互独立的。</li>
+<li>单个TCP连接 -初始连接使用 HTTP，然后将此连接升级到基于套接字的连接。然后这个单一连接用于所有未来的通信</li>
+<li>Light与http相比，WebSocket消息数据交换要轻得多。</li>
+</ol>
+<h3 id="28-什么是-Spring-Data">28. 什么是 Spring Data?</h3>
+<p>Spring Data 是 Spring 的一个子项目。用于简化数据库访问，支持NoSQL 和 关系数据存储。其主要目标是使数据库的访问变得方便快捷。Spring Data 具有如下特点：</p>
+<p>SpringData 项目支持 NoSQL 存储：</p>
+<ol>
+<li>MongoDB （文档数据库）</li>
+<li>Neo4j（图形数据库）</li>
+<li>Redis（键/值存储）</li>
+<li>Hbase（列族数据库）</li>
+</ol>
+<p>SpringData 项目所支持的关系数据存储技术：</p>
+<ol>
+<li>JDBC</li>
+<li>JPA</li>
+</ol>
+<p>Spring Data Jpa 致力于减少数据访问层 (DAO) 的开发量. 开发者唯一要做的，就是声明持久层的接口，其他都交给 Spring Data JPA 来帮你完成！Spring Data JPA 通过规范方法的名字，根据符合规范的名字来确定方法需要实现什么样的逻辑。</p>
+<h3 id="29-什么是-Spring-Batch？">29. 什么是 Spring Batch？</h3>
+<h3 id="30-什么是-FreeMarker-模板？">30. 什么是 FreeMarker 模板？</h3>
+<h3 id="31-如何集成-SpringBoot和ActiveMQ？">31. 如何集成 SpringBoot和ActiveMQ？</h3>
+<h3 id="32-Swagger用过吗？他用来做什么？">32. Swagger用过吗？他用来做什么？</h3>
+<p>Swagger广泛用于可视化API，使用SwaggerUl<strong>为前端开发人员提供在线沙箱</strong>。Swagger 是用于生成RESTful Web服务的可视化表示的工具，规范和完整框架实现。它<strong>使文档能够以与服务器相同的速度更新</strong>。当通过Swagger 正确定义时，消费者可以使用最少量的实现逻辑来理解远程服务并与其进行交互。因此，Swagger 消除了调用服务时的猜测。</p>
+<h3 id="33-前后端分离，如何维护接口文档">33. 前后端分离，如何维护接口文档 ?</h3>
+<p>前后端分离开发日益流行，大部分情况下，我们都是通过 Spring Boot 做前后端分离开发，前后端分离一定会有接口文档，不然会前后端会深深陷入到扯皮中。一个比较笨的方法就是使用 word 或者 md 来维护接口文档，但是效率太低，接口一变，所有人手上的文档都得变。在 Spring Boot 中，这个问题常见的解决方案是 Swagger ，使用 Swagger 我们可以快速生成一个接口文档网站，接口一旦发生变化，文档就会自动更新，所有开发工程师访问这一个在线网站就可以获取到最新的接口文档，非常方便。</p>
+<h3 id="34-SpringBoot项目如何热部署？">34. SpringBoot项目如何热部署？</h3>
+<p>这可以使用 DEV 工具来实现。通过这种依赖关系，您可以节省任何更改，嵌入式tomcat 将重新启动。Spring Boot 有一个**开发工具（DevTools）**模块，它有助于提高开发人员的生产力。Java 开发人员面临的一个主要挑战是将文件更改自动部署到服务器并自动重启服务器。这将消除每次手动部署更改的需要。Spring Boot 在发布它的第一个版本时没有这个功能。这是开发人员最需要的功能。DevTools 模块完全满足开发人员的需求。该模块将在生产环境中被禁用。它还提供 H2 数据库控制台以更好地测试应用程序。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​	SpringBoot为我们提供了一个方便我们开发测试的工具dev-tools。使用后可以实现热部署的效果。当我们运行了程序后对程序进行了修改，程序会自动重启。</p>
+<p>​	 原理是使用了两个ClassLoder,一个ClassLoader加载哪些不会改变的类(第三方jar包),另一个ClassLoader加载会更改的类.称之为<code>Restart ClassLoader</code>,这样在有代码更改的时候,原来的Restart Classloader被丢弃,重新创建一个Restart ClassLoader,由于需要加载的类相比较少,所以实现了较快的重启。</p>
+<h3 id="35-SpringBoot-中的starter到底是什么">35. SpringBoot 中的starter到底是什么 ?</h3>
+<p>首先，这个 Starter 并非什么新的技术点，基本上还是基于 Spring 已有功能来实现的。首先它提供了一个自动化配置类，一般命名为 <code>XXXAutoConfiguration</code> ，在这个配置类中通过条件注解来决定一个配置是否生效（条件注解就是 Spring 中原本就有的），然后它还会提供一系列的默认配置，也允许开发者根据实际情况自定义相关配置，然后通过类型安全的属性注入将这些配置属性注入进来，新注入的属性会代替掉默认属性。正因为如此，很多第三方框架，我们只需要引入依赖就可以直接使用了。当然，开发者也可以自定义 Starter</p>
+<p>​	当我们需要使用某种功能时<strong>只需要引入对应的starter即可</strong>。一个starter针对一种特定的场景，其内部引入了该场景所需的依赖。这样我们就不需要单独引入多个依赖了。</p>
+<p>​	命名规律</p>
+<ul>
+<li>官方starter都是以  <code>spring-boot-starter</code>开头后面跟上场景名称。例如：spring-boot-starter-data-jpa</li>
+<li>非官方starter则是以 <code>场景名-spring-boot-starter</code>的格式，例如：mybatis-spring-boot-starter</li>
+</ul>
+<h3 id="36-spring-boot-starter-parent-有什么用">36. spring-boot-starter-parent 有什么用?</h3>
+<p>新创建一个 SpringBoot 项目，默认都是有 parent 的，这个 parent 就是 spring-boot-starter-parent ，spring-boot-starter-parent 主要有如下作用：</p>
+<ol>
+<li>定义了 Java 编译版本为 1.8 。</li>
+<li>使用 UTF-8 格式编码。</li>
+<li><strong>继承自 spring-boot-dependencies，这个里边定义了依赖的版本</strong>，也正是因为继承了这个依赖，所以我们在写依赖时才不需要写版本号。</li>
+<li>执行打包操作的配置。</li>
+<li>自动化的资源过滤。</li>
+<li>自动化的插件配置。</li>
+<li>针对 application.properties 和 application.yml 的资源过滤，包括通过 profile 定义的不同环境的配置文件，例如 application-dev.properties 和 application-dev.yml。</li>
+</ol>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/SpringBoot/image-20230902161400792.png" alt="image-20230902161400792"></p>
+<h3 id="37-SpringBoot-打成的jar和普通的jar有什么区别">37. SpringBoot 打成的jar和普通的jar有什么区别 ?</h3>
+<p>Spring boot 项目最终打包成的 jar 是可执行 jar ，这种 jar 可以直接通过 <code>java -jar xxx.jar</code> 命令来运行，这种 jar 不可以作为普通的 jar 被其他项目依赖，即使依赖了也无法使用其中的类。</p>
+<p>SpringBoot 的 jar 无法被其他项目依赖，主要还是他和普通 jar 的结构不同。普通的 jar 包，解压后直接就是包名，包里就是我们的代码，而 Spring Boot 打包成的<strong>可执行 jar</strong> 解压后，在 <code>\BOOT-INF\classes</code> 目录下才是我们的代码，因此无法被直接引用。如果非要引用，可以在 pom.xml 文件中增加配置，将 Spring Boot 项目打包成两个 jar ，一个可执行，一个可引用。</p>
+<p>我们可以把springboot的项目打成jar包直接去运行。</p>
+<p>①添加maven插件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--springboot打包插件--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>②maven打包</p>
+<p><img src="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/SpringBoot/image-20230902161407650.png" alt="image-20230902161407650"></p>
+<p>③运行jar包</p>
+<p>在jar包所在目录执行命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar jar包名称</span><br></pre></td></tr></table></figure>
+<p>即可运行。</p>
+<h3 id="41-SpringBoot-中如何实现定时任务">41. SpringBoot 中如何实现定时任务?</h3>
+<p>定时任务也是一个常见的需求，SpringBoot 中对于定时任务的支持主要还是来自 Spring 框架。</p>
+<p>在 SpringBoot 中使用定时任务主要有两种不同的方式，一个就是使用 Spring 中的 @Scheduled 注解，另一个则是使用第三方框架 Quartz。</p>
+<ul>
+<li>使用Spring中的 @Scheduled的方式主要通过@Scheduled注解来实现。</li>
+<li>使用Quartz，则按照Quartz的方式，定义Job和Trigger即可。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://hupingsheng.com">huxianseng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://hupingsheng.com/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/SpringBoot/">http://hupingsheng.com/面试题/JavaWeb与框架/SpringBoot/SpringBoot/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://hupingsheng.com" target="_blank">胡大仙</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%A1%86%E6%9E%B6/">框架</a></div><div class="post_share"><div class="social-share" data-image="/images/home.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/images/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/images/wechat.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="/images/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/images/alipay.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringSecurity/Spring%20Security/" title="SpringSecurity"><img class="cover" src="/images/home.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringSecurity</div></div></a></div><div class="next-post pull-right"><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/%E4%B8%AD%E9%97%B4%E4%BB%B6/redis/redis/" title="redis"><img class="cover" src="/images/home.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">redis</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JVM/jvm/" title="jvm"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-16</div><div class="title">jvm</div></div></a></div><div><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/Mybatis/Mybatis/" title="Mybatis"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-16</div><div class="title">Mybatis</div></div></a></div><div><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/Spring/Spring/" title="Spring"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-16</div><div class="title">Spring</div></div></a></div><div><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringMVC/SpringMVC/" title="SpringMVC"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-16</div><div class="title">SpringMVC</div></div></a></div><div><a href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringSecurity/Spring%20Security/" title="SpringSecurity"><img class="cover" src="/images/home.webp" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-16</div><div class="title">SpringSecurity</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">huxianseng</div><div class="author-info__description">日拱一卒，功不唐捐!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">13</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">16</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hupingsheng"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/hupingsheng" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:hu942658636@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringBoot%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">SpringBoot基础入门</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Spring-Boot%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 Spring Boot？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBoot%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-number">1.2.</span> <span class="toc-text">SpringBoot有哪些优点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%B2%E8%BF%B0%E4%B8%80%E4%B8%8B-SpringBoot-%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">讲述一下 SpringBoot 自动装配原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-Boot-%E7%9A%84%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%89%E5%93%AA%E5%87%A0%E4%B8%AA%EF%BC%9F%E5%AE%83%E4%BB%AC%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.4.</span> <span class="toc-text">Spring Boot 的核心配置文件有哪几个？它们的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Spring-Boot-%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%A0%BC%E5%BC%8F%EF%BC%9F%E5%AE%83%E4%BB%AC%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">5.Spring Boot 的配置文件有哪几种格式？它们有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Spring-Boot-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%9F%E5%AE%83%E4%B8%BB%E8%A6%81%E7%94%B1%E5%93%AA%E5%87%A0%E4%B8%AA%E6%B3%A8%E8%A7%A3%E7%BB%84%E6%88%90%E7%9A%84%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">6. Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%BC%80%E5%90%AF-Spring-Boot-%E7%89%B9%E6%80%A7%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.7.</span> <span class="toc-text">7. 开启 Spring Boot 特性有哪几种方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E4%BB%80%E4%B9%88%E6%98%AFJavaConfig%EF%BC%9F"><span class="toc-number">1.8.</span> <span class="toc-text">8. 什么是JavaConfig？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-SpringBoot%E3%80%81Spring-MVC%E5%92%8CSpring%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.9.</span> <span class="toc-text">10. SpringBoot、Spring MVC和Spring有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-SpringBoot%E5%90%AF%E5%8A%A8%E6%97%B6%E9%83%BD%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">1.10.</span> <span class="toc-text">11. SpringBoot启动时都做了什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-SpringBoot-%E9%9C%80%E8%A6%81%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%AE%B9%E5%99%A8%E8%BF%90%E8%A1%8C%E5%90%97%EF%BC%9F"><span class="toc-number">1.11.</span> <span class="toc-text">12. SpringBoot 需要独立的容器运行吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E4%BB%80%E4%B9%88%E6%98%AFYAML%EF%BC%9F"><span class="toc-number">1.12.</span> <span class="toc-text">13. 什么是YAML？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-YAML-%E9%85%8D%E7%BD%AE%E7%9A%84%E4%BC%98%E5%8A%BF%E5%9C%A8%E5%93%AA%E9%87%8C"><span class="toc-number">1.13.</span> <span class="toc-text">14. YAML 配置的优势在哪里 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-SpringBoot-%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-XML-%E9%85%8D%E7%BD%AE"><span class="toc-number">1.14.</span> <span class="toc-text">15. SpringBoot 是否可以使用 XML 配置 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16-SpringBoot%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.15.</span> <span class="toc-text">16. SpringBoot核心配置文件是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17-bootstrap-properties%E5%92%8Capplication-properties-%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">1.16.</span> <span class="toc-text">17. bootstrap.properties和application.properties 有何区别 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18-%E4%BB%80%E4%B9%88%E6%98%AFSpring-Profiles%EF%BC%9F"><span class="toc-number">1.17.</span> <span class="toc-text">18. 什么是Spring Profiles？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19-%E5%A6%82%E4%BD%95%E5%9C%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AB%AF%E5%8F%A3%E4%B8%8A%E8%BF%90%E8%A1%8CSpringBoot%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%9F"><span class="toc-number">1.18.</span> <span class="toc-text">19. 如何在自定义端口上运行SpringBoot应用程序？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0SpringBoot%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7%EF%BC%9F"><span class="toc-number">1.19.</span> <span class="toc-text">20. 如何实现SpringBoot应用程序的安全性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21-%E6%AF%94%E8%BE%83%E4%B8%80%E4%B8%8BSpring-Security-%E5%92%8CShiro%E5%90%84%E8%87%AA%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.20.</span> <span class="toc-text">21. 比较一下Spring Security 和Shiro各自的优缺点 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22-SpringBoot%E4%B8%AD%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.21.</span> <span class="toc-text">22. SpringBoot中如何解决跨域问题 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23-%E4%BB%80%E4%B9%88%E6%98%AF-CSRF-%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="toc-number">1.22.</span> <span class="toc-text">23. 什么是 CSRF 攻击？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24-SpringBoot-%E4%B8%AD%E7%9A%84%E7%9B%91%E8%A7%86%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.23.</span> <span class="toc-text">24. SpringBoot 中的监视器是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25-%E5%A6%82%E4%BD%95%E5%9C%A8SpringBoot%E4%B8%AD%E7%A6%81%E7%94%A8Actuator%E7%AB%AF%E7%82%B9%E5%AE%89%E5%85%A8%E6%80%A7%EF%BC%9F"><span class="toc-number">1.24.</span> <span class="toc-text">25. 如何在SpringBoot中禁用Actuator端点安全性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#27-%E4%BB%80%E4%B9%88%E6%98%AF-WebSockets%EF%BC%9F"><span class="toc-number">1.25.</span> <span class="toc-text">27. 什么是 WebSockets？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28-%E4%BB%80%E4%B9%88%E6%98%AF-Spring-Data"><span class="toc-number">1.26.</span> <span class="toc-text">28. 什么是 Spring Data?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29-%E4%BB%80%E4%B9%88%E6%98%AF-Spring-Batch%EF%BC%9F"><span class="toc-number">1.27.</span> <span class="toc-text">29. 什么是 Spring Batch？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30-%E4%BB%80%E4%B9%88%E6%98%AF-FreeMarker-%E6%A8%A1%E6%9D%BF%EF%BC%9F"><span class="toc-number">1.28.</span> <span class="toc-text">30. 什么是 FreeMarker 模板？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#31-%E5%A6%82%E4%BD%95%E9%9B%86%E6%88%90-SpringBoot%E5%92%8CActiveMQ%EF%BC%9F"><span class="toc-number">1.29.</span> <span class="toc-text">31. 如何集成 SpringBoot和ActiveMQ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32-Swagger%E7%94%A8%E8%BF%87%E5%90%97%EF%BC%9F%E4%BB%96%E7%94%A8%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.30.</span> <span class="toc-text">32. Swagger用过吗？他用来做什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%EF%BC%8C%E5%A6%82%E4%BD%95%E7%BB%B4%E6%8A%A4%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3"><span class="toc-number">1.31.</span> <span class="toc-text">33. 前后端分离，如何维护接口文档 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-SpringBoot%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E7%83%AD%E9%83%A8%E7%BD%B2%EF%BC%9F"><span class="toc-number">1.32.</span> <span class="toc-text">34. SpringBoot项目如何热部署？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35-SpringBoot-%E4%B8%AD%E7%9A%84starter%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.33.</span> <span class="toc-text">35. SpringBoot 中的starter到底是什么 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36-spring-boot-starter-parent-%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8"><span class="toc-number">1.34.</span> <span class="toc-text">36. spring-boot-starter-parent 有什么用?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#37-SpringBoot-%E6%89%93%E6%88%90%E7%9A%84jar%E5%92%8C%E6%99%AE%E9%80%9A%E7%9A%84jar%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">1.35.</span> <span class="toc-text">37. SpringBoot 打成的jar和普通的jar有什么区别 ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41-SpringBoot-%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.36.</span> <span class="toc-text">41. SpringBoot 中如何实现定时任务?</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/Springboot/SpringBoot/" title="无题"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/%E9%9D%A2%E8%AF%95%E9%A2%98/JavaWeb%E4%B8%8E%E6%A1%86%E6%9E%B6/SpringBoot/Springboot/SpringBoot/" title="无题">无题</a><time datetime="2023-09-02T07:56:27.743Z" title="发表于 2023-09-02 15:56:27">2023-09-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/" title="算法题"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法题"/></a><div class="content"><a class="title" href="/%E7%AE%97%E6%B3%95/%E7%AE%97%E6%B3%95/" title="算法题">算法题</a><time datetime="2023-08-31T02:47:33.000Z" title="发表于 2023-08-31 10:47:33">2023-08-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/RDB%E5%92%8CAOF/" title="Redis持久化"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Redis持久化"/></a><div class="content"><a class="title" href="/RDB%E5%92%8CAOF/" title="Redis持久化">Redis持久化</a><time datetime="2023-08-26T13:23:19.000Z" title="发表于 2023-08-26 21:23:19">2023-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E5%92%8C%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2/" title="创建菜单和游戏界面"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="创建菜单和游戏界面"/></a><div class="content"><a class="title" href="/%E5%88%9B%E5%BB%BA%E8%8F%9C%E5%8D%95%E5%92%8C%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2/" title="创建菜单和游戏界面">创建菜单和游戏界面</a><time datetime="2023-08-26T13:23:19.000Z" title="发表于 2023-08-26 21:23:19">2023-08-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E6%96%B9%E6%A1%88/" title="缓存更新方案"><img src="/images/home.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="缓存更新方案"/></a><div class="content"><a class="title" href="/%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E6%96%B9%E6%A1%88/" title="缓存更新方案">缓存更新方案</a><time datetime="2023-08-13T07:15:26.000Z" title="发表于 2023-08-13 15:15:26">2023-08-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By huxianseng</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
